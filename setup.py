@@ -10,10 +10,11 @@ import sys
 
 VERSION_SUFFIX = "%d.%d" % sys.version_info[:2]
 
-
-with open("README.rst") as readme:
+'''
+with open("README.md") as readme:
     long_description = readme.read()
-
+'''
+long_description = 'Custom sumy install'
 
 setup(
     name="sumy",

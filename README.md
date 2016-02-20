@@ -80,7 +80,7 @@ $ [sudo] pip install sumy
 Or for the fresh version:
 
 ```sh
-$ [sudo] pip install git+git://github.com/miso-belica/sumy.git
+$ [sudo] pip install git+git://github.com/QIntelligence/sumy.git
 ```
 
 ## Usage
