@@ -50,7 +50,7 @@ class BiasedAbstractSummarizer(object):
         if not isinstance(count, ItemsCount):
             count = ItemsCount(count)
         infos = count(infos)
-        print infos
+        print(infos)
         # sort sentences by their order in document
         infos = sorted(infos, key=attrgetter("order"))
 
