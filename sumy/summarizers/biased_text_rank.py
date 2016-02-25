@@ -33,7 +33,7 @@ class BiasedTextRankSummarizer(BiasedAbstractSummarizer):
         return bias
     def rate_sentences(self, document):
         sentences_words = [(s, self._to_words_set(s)) for s in document.sentences]
-        print('Printing sentences: ')
+       # print('Printing sentences: ')
         
          
         ratings = defaultdict(float)
@@ -46,7 +46,7 @@ class BiasedTextRankSummarizer(BiasedAbstractSummarizer):
            # print(sentence.words)
             ratings[sentence] += self.score_biases(sentence._text) 
   
-        print(ratings)
+        #print(ratings)
         return ratings
 
     def _to_words_set(self, sentence):
