@@ -43,7 +43,7 @@ class BiasedTextRankSummarizer(BiasedAbstractSummarizer):
             ratings[sentence1] += rank
             ratings[sentence2] += rank
         for sentence in document.sentences:
-           # print sentence.words
+            print(sentence.words)
             ratings[sentence] += self.score_biases(sentence.words) 
   
         print(ratings)
