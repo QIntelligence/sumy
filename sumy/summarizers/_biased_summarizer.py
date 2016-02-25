@@ -22,12 +22,11 @@ class BiasedAbstractSummarizer(object):
             raise ValueError("Stemmer has to be a callable object")
 
         self._stemmer = stemmer
+        self.bias_functions = bias_functions
 
     def __call__(self, document, sentences_count):
         raise NotImplementedError("This method should be overriden in subclass")
 
-    def score_biases(self, sentence):
-        return 0
 
     def stem_word(self, word):
         return self._stemmer(self.normalize_word(word))
@@ -43,8 +42,6 @@ class BiasedAbstractSummarizer(object):
 
         infos = (SentenceInfo(s, o, rate(s, *args, **kwargs))
             for o, s in enumerate(sentences))
-
-        # sort sentences by rating in descending order
         infos = sorted(infos, key=attrgetter("rating"), reverse=True)
         # get `count` first best rated sentences
         if not isinstance(count, ItemsCount):

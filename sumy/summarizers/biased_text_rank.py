@@ -26,16 +26,20 @@ class BiasedTextRankSummarizer(BiasedAbstractSummarizer):
     def __call__(self, document, sentences_count):
         ratings = self.rate_sentences(document)
         return self._get_best_sentences(document.sentences, sentences_count, ratings)
-
+    def score_biases(self, sentence):
+        bias = 0
+        for function in self.bias_functions:
+            bias += function(sentence)
+        return bias
     def rate_sentences(self, document):
         sentences_words = [(s, self._to_words_set(s)) for s in document.sentences]
         ratings = defaultdict(float)
-
+        
         for (sentence1, words1), (sentence2, words2) in combinations(sentences_words, 2):
             rank = self._rate_sentences_edge(words1, words2)
             ratings[sentence1] += rank
             ratings[sentence2] += rank
-
+        print ratings
         return ratings
 
     def _to_words_set(self, sentence):
