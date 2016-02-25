@@ -16,8 +16,8 @@ SentenceInfo = namedtuple("SentenceInfo", ("sentence", "order", "rating",))
 
 
 
-class BiasedAbstractSummarizer(object, bias_functions):
-    def __init__(self, stemmer=null_stemmer):
+class BiasedAbstractSummarizer(object):
+    def __init__(self, bias_functions, stemmer=null_stemmer):
         if not callable(stemmer):
             raise ValueError("Stemmer has to be a callable object")
 
