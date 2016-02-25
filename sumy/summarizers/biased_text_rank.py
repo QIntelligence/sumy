@@ -39,7 +39,7 @@ class BiasedTextRankSummarizer(BiasedAbstractSummarizer):
             rank = self._rate_sentences_edge(words1, words2)
             ratings[sentence1] += rank
             ratings[sentence2] += rank
-        print ratings
+        print(ratings)
         return ratings
 
     def _to_words_set(self, sentence):
